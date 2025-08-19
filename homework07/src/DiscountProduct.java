@@ -1,17 +1,14 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class DiscountProduct extends Product {
-    private int discount;  // Скидка в процентах (например, 10 = 10%)
-    private LocalDate discountEndDate;  // Дата окончания скидки
+    private int discount;
+    private LocalDate discountEndDate;
 
     public DiscountProduct(String name, int price, int discount, LocalDate discountEndDate) {
         super(name, price);
         setDiscount(discount);
         setDiscountEndDate(discountEndDate);
-    }
-
-    public int getDiscount() {
-        return discount;
     }
 
     public void setDiscount(int discount) {
@@ -21,9 +18,6 @@ public class DiscountProduct extends Product {
         this.discount = discount;
     }
 
-    public LocalDate getDiscountEndDate() {
-        return discountEndDate;
-    }
 
     public void setDiscountEndDate(LocalDate discountEndDate) {
         if (discountEndDate.isBefore(LocalDate.now())) {
@@ -35,9 +29,9 @@ public class DiscountProduct extends Product {
     @Override
     public int getPrice() {
         if (LocalDate.now().isAfter(discountEndDate)) {
-            return super.getPrice();  // Если скидка истекла, возвращаем полную цену
+            return super.getPrice();
         }
-        return super.getPrice() * (100 - discount) / 100;  // Цена со скидкой
+        return super.getPrice() * (100 - discount) / 100;
     }
 
     @Override
@@ -47,5 +41,19 @@ public class DiscountProduct extends Product {
         }
         return super.getName() + " (Цена со скидкой " + discount + "%: " + getPrice() +
                 ", Скидка действует до: " + discountEndDate + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        DiscountProduct that = (DiscountProduct) o;
+        return discount == that.discount && discountEndDate.equals(that.discountEndDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), discount, discountEndDate);
     }
 }
