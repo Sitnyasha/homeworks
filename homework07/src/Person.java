@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Person {
     private String name;
     private int money;
-    private List<Product> bag;
+    private final List<Product> bag;  // Добавляем final
 
     public Person(String name, int money) {
         setName(name);
         setMoney(money);
-        this.bag = new ArrayList<>();
+        this.bag = new ArrayList<>();  // Инициализируем final поле
     }
 
     public String getName() {
