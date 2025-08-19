@@ -20,7 +20,7 @@ public class Product {
         if (name.length() < 3) {
             throw new IllegalArgumentException("Имя не может быть короче 3 символов");
         }
-        if (name.matches("\\d+")) {  // Проверка, что имя не состоит только из цифр
+        if (name.matches("\\d+")) {
             throw new IllegalArgumentException("Имя не может состоять только из цифр");
         }
         this.name = name;

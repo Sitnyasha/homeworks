@@ -9,7 +9,6 @@ public class App {
         List<Person> people = new ArrayList<>();
         List<Product> products = new ArrayList<>();
 
-        // Ввод покупателей
         System.out.println("Введите покупателей в формате: Имя=Сумма (через запятую)");
         String[] peopleInput = scanner.nextLine().split("[,;]");
         for (String personData : peopleInput) {
@@ -27,7 +26,6 @@ public class App {
             }
         }
 
-        // Ввод продуктов
         System.out.println("Введите продукты в формате: Название=Цена (обычный) или Название=Цена,Скидка%,ГГГГ-ММ-ДД (скидочный)");
         String[] productsInput = scanner.nextLine().split("[,;]");
         for (String productData : productsInput) {
@@ -56,7 +54,6 @@ public class App {
             }
         }
 
-        // Обработка покупок (остаётся без изменений)
         while (true) {
             System.out.println("Введите покупки в формате: Имя-Продукт (или END для завершения)");
             String input = scanner.nextLine();
@@ -85,7 +82,6 @@ public class App {
             }
         }
 
-        // Вывод результатов
         System.out.println("\nРезультаты:");
         for (Person person : people) {
             System.out.println(person);
