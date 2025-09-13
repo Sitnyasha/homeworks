@@ -19,20 +19,16 @@ public class AnagramChecker {
     }
 
     public static boolean isAnagram(String s, String t) {
-        // Если строки разной длины - точно не анаграммы
         if (s.length() != t.length()) {
             return false;
         }
 
-        // Преобразуем строки в массивы символов
         char[] sArray = s.toCharArray();
         char[] tArray = t.toCharArray();
 
-        // Сортируем оба массива
         Arrays.sort(sArray);
         Arrays.sort(tArray);
 
-        // Сравниваем отсортированные массивы
         return Arrays.equals(sArray, tArray);
     }
 }

@@ -4,7 +4,6 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-        // Тест 1: с числами
         ArrayList<Integer> numbers = new ArrayList<>();
         numbers.add(10);
         numbers.add(20);
@@ -19,7 +18,7 @@ public class Main {
         System.out.println("Уникальные элементы: " + uniqueNumbers);
         System.out.println();
 
-        // Тест 2: со строками
+
         ArrayList<String> fruits = new ArrayList<>();
         fruits.add("яблоко");
         fruits.add("банан");
@@ -34,7 +33,6 @@ public class Main {
         System.out.println("Уникальные элементы: " + uniqueFruits);
         System.out.println();
 
-        // Тест 3: с другими типами (например, Double)
         ArrayList<Double> prices = new ArrayList<>();
         prices.add(99.99);
         prices.add(49.50);
